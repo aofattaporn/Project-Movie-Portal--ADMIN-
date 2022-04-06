@@ -1,0 +1,11 @@
+.link{
+   color: rgb(184, 181, 181);
+   text-decoration: none;
+}
+
+.link:hover{
+   color: rgb(150, 131, 80);
+   font-weight: bolder;
+   text-decoration: underline;
+}
+
