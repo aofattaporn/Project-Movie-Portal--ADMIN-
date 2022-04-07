@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const PORT = 4000;
+const todoRoutes = require('./api/routes/todo');
+const userRoutes = require('./api/routes/user');
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -15,6 +18,10 @@ const connection = mongoose.connection;
 connection.once('open', ()=>{
    console.log("MongoDB database connection established successfully");
 })
+
+// managge routes 
+app.use('/todos', todoRoutes);
+app.use('/users', userRoutes);
 
 
 

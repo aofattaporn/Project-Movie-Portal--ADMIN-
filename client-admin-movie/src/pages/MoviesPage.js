@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import {Container, Form, Button, Row} from "react-bootstrap";
+import {Container, Form, Button} from "react-bootstrap";
 
 const MoviePage=()=>{
 
@@ -35,8 +35,7 @@ const MoviePage=()=>{
             password: password
          }
       );
-
-      
+      console.log(data);
    }
 
    
@@ -53,7 +52,7 @@ const MoviePage=()=>{
          <div className="bg-start pt-5">
             <Container>
                <h1>Hello MoviePage</h1>
-               <Container >
+               <Container fluid="sm" >
                   <Form className="me-5 ms-5" onSubmit={onSubmit}>
                      <Form.Group className="mb-5" controlId="testUser">
                         <Form.Label>User name</Form.Label>
