@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server",
-    "dev": "nodemon server"
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js",
+    "client": "cd client && npm run start",
+    "dev": "concurrently \"nodemon server\" \"cd ../client-admin-movie && npm start\""
   },
   "keywords": [],
   "author": "",
@@ -16,5 +17,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "mongoose": "^6.2.10"
+  },
+  "devDependencies": {
+    "concurrently": "^7.1.0"
   }
 }

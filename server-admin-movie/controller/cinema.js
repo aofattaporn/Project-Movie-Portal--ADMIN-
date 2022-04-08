@@ -64,9 +64,6 @@ const updateCinema =(req, res)=>{
    });
 }
 
-const createTheater =(req, res)=>{
-   
-}
 
 
 module.exports = {getCinemas, getCinemaByName, createCinema, deleteCinemas, updateCinema};
