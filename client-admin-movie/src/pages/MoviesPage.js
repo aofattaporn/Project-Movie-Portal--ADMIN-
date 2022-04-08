@@ -38,13 +38,6 @@ const MoviePage=()=>{
       console.log(data);
    }
 
-   
-
- 
-
-
-
-
    return (
       <Fragment>
 
@@ -52,7 +45,7 @@ const MoviePage=()=>{
          <div className="bg-start pt-5">
             <Container>
                <h1>Hello MoviePage</h1>
-               <Container fluid="sm" >
+               <Container>
                   <Form className="me-5 ms-5" onSubmit={onSubmit}>
                      <Form.Group className="mb-5" controlId="testUser">
                         <Form.Label>User name</Form.Label>
