@@ -6,8 +6,9 @@ import Navigation from './component/Navigation';
 // import pages 
 import HomePage from './pages/HomePage';
 import MoviePage from './pages/MoviesPage';
-import CinemasPage from './pages/CinemasPage';
+import CinemasPage from './pages/CinemasPage/CinemasPage';
 import PromotionPage from './pages/PromotionPages';
+import CreateCinemas from './pages/CreateCinemas';
 import { Route, Routes } from 'react-router-dom';
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route className='test' path='/' element={<HomePage/>}></Route>
         <Route path='/movies' element={<MoviePage/>}></Route>
         <Route path='/cinemas' element={<CinemasPage/>}></Route>
+        <Route path='/cinemas/create' element={<CreateCinemas/>}></Route>
         <Route path='/promotions' element={<PromotionPage/>}></Route>
       </Routes>
       

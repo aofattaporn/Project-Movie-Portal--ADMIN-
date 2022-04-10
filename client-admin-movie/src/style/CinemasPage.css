@@ -1,19 +1,12 @@
-.bg{
-   height: 500px;
-}
 
-.bg-1{
+.container-1{
    background: linear-gradient(#C9B898, #3A3424);
-   height: 500px;
-}
-.bg-2{
-   background: #222529;
-   height: 20em;
-
-   /* height: 100%; */
+   height: auto;
+   padding-bottom: 10rem;
 }
 
-.list__item{
+
+.list{
    display: flex;
    flex-wrap: nowrap;
    justify-content: space-between;
@@ -21,22 +14,26 @@
    align-content: center;
    padding-bottom: 10px;
    border-bottom: #17130a1e solid;
-   
 }
 
-.list__item  button{
+.list__title{
+   display: flex;
+   padding: 1rem;
+}
+
+.list button{
    margin-top: 10px;
    margin-right: 10px ;
 }
-.list__item h6{
+.list h6{
    margin-left: 10px ;
 }
+
 .accordion-button:not(.collapsed){
    background-color: #3A3424;
 }
 
-
-.list__item:hover{
+.list:hover{
    color: #3A3424;
    font-weight: bold;
    background-color: #3a342414;
@@ -44,19 +41,28 @@
    border-radius: 10px;
 }
 
-.veiw__header{
+/* cinemas-page */
+
+.box-cinemas__header{
    display: flex;
    justify-content: space-between;
+   margin-bottom: 20px;
 }
 
-.veiw__header h1{
+.box-cinemas__header h1{
    color: white;
 }
 
-.veiw__header button{
+.box-cinemas__header button{
    border-radius: 50%;
    width: 50px;
    height: 50px;
+}
+
+.box-create{
+   background-color: white;
+   height: auto;
+   border-radius: 30px;
 }
 
 

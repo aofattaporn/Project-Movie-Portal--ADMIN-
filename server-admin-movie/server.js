@@ -13,6 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(logger);
 
+
 // connecting mongos 
 mongoose.connect('mongodb://127.0.0.1:27017/MoviePortal', { useNewUrlParser: true });
 const connection = mongoose.connection;

@@ -19,6 +19,8 @@ const ListItem=(props)=>{
       // request delete 
       await axios.delete(`http://localhost:4000/cinemas/delete/${id}`)
       .then((response)=>{ 
+         // delete
+         delteteFunc(id);
          response.data({});
       })
       .catch((error) => {console.log(`Error ${error}`)});
@@ -26,13 +28,15 @@ const ListItem=(props)=>{
       setShow(false)
    };
 
+   const handleCloseDontDelete =()=> setShow(false);
+
    const handleShow = () => setShow(true);
 
    return(
       
       <Container className='mb-2' fluid>
-         <div className='list__item' >
-            <div >
+         <div className='list' >
+            <div className='list__title'>
                <FontAwesomeIcon icon={faLocationDot}></FontAwesomeIcon>
                <h6>{title}</h6>
             </div>
@@ -40,20 +44,18 @@ const ListItem=(props)=>{
             <ButtonGroup>
                <Button variant="primary"> Edit </Button>
                <Button variant="danger" onClick={handleShow}> delete </Button> 
+
                <Modal aria-labelledby="contained-modal-title-vcenter" centered show={show} onHide={handleClose}>
                   <Modal.Header closeButton>
                      <Modal.Title>Confilm Delete</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body>Are you sure you want to delete ? </Modal.Body>
+                        <Modal.Body> Are you sure you want to delete ? </Modal.Body>
                         <Modal.Footer>
-                           <Button variant="secondary" onClick={handleClose}>
-                              cancle
-                           </Button>
-                           <Button variant="danger" onClick={handleClose}>
-                              delete
-                           </Button>
-                  </Modal.Footer>
+                           <Button variant="secondary" onClick={handleCloseDontDelete}> cancle </Button>
+                           <Button variant="danger" onClick={handleClose}> delete </Button>
+                        </Modal.Footer>
                </Modal>
+
             </ButtonGroup>
          </div>
       </Container>
