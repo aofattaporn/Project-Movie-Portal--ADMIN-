@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { Accordion, Button, Col, Container, Row,  } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import '../style/CinemasPage.css';
+import '../../style/CinemasPage.css';
 import ListItem from "../../component/ListItem";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
@@ -31,14 +31,13 @@ const CinemasPage=()=>{
       getCinemas();
       setIsDeletee(true);
       console.log('refresh');
-    }, [isDelete] );
+   }, [isDelete] );
 
    return (
       <Fragment>
          <div className="container-1">
             <Container className="pt-5">
                <Container className="mt-5">
-                  {/* provide-element-center */}
                   <Row>
                      <Col xl='2' lg='1'></Col>
                      <Col xl='8' lg='10'>
@@ -51,8 +50,7 @@ const CinemasPage=()=>{
                                  </Button>
                               </Link>
                            </div>
-                        </Container>
-                        
+                        </Container>                        
                         <Accordion className="box-cinemas__accordion" defaultActiveKey="0">
 
                            <Accordion.Item eventKey="0">
@@ -95,9 +93,11 @@ const CinemasPage=()=>{
                            <Accordion.Item eventKey="3">
                               <Accordion.Header> West </Accordion.Header>
                               <Accordion.Body>
-                                 {
+                              {
                                     cinemas.filter(cinema => cinema.cinema_area === "ตะวันตก")   
-                                    .map((item) => <ListItem key={item.id} title={item.cinema_name}/> )
+                                    .map((item, index) => 
+                                       <ListItem key={index.toString()} delteteFunc={deleteCinema} id={item._id.toString()} title={item.cinema_name}/> 
+                                    )    
                                  }
                               </Accordion.Body>                     
                            </Accordion.Item>
@@ -105,9 +105,11 @@ const CinemasPage=()=>{
                            <Accordion.Item eventKey="4">
                               <Accordion.Header> NortEast </Accordion.Header>
                               <Accordion.Body>
-                                 {
-                                    cinemas.filter(cinema => cinema.cinema_area === "ตะวันออกเฉียงเหนือ")   
-                                    .map((item) => <ListItem key={item.id} title={item.cinema_name}/> )
+                              {
+                                    cinemas.filter(cinema => cinema.cinema_area === "")   
+                                    .map((item, index) => 
+                                       <ListItem key={index.toString()} delteteFunc={deleteCinema} id={item._id.toString()} title={item.cinema_name}/> 
+                                    )    
                                  }
                               </Accordion.Body>                     
                            </Accordion.Item>
@@ -115,9 +117,11 @@ const CinemasPage=()=>{
                            <Accordion.Item eventKey="5">
                               <Accordion.Header> South </Accordion.Header>
                               <Accordion.Body>
-                                 {
+                              {
                                     cinemas.filter(cinema => cinema.cinema_area === "ใต้")   
-                                    .map((item) => <ListItem key={item.id} title={item.cinema_name}/> )
+                                    .map((item, index) => 
+                                       <ListItem key={index.toString()} delteteFunc={deleteCinema} id={item._id.toString()} title={item.cinema_name}/> 
+                                    )    
                                  }
                               </Accordion.Body>                     
                            </Accordion.Item>
@@ -125,9 +129,11 @@ const CinemasPage=()=>{
                            <Accordion.Item eventKey="6">
                               <Accordion.Header> East </Accordion.Header>
                               <Accordion.Body>
-                                 {
+                              {
                                     cinemas.filter(cinema => cinema.cinema_area === "ตะวันออก")   
-                                    .map((item) => <ListItem key={item.id} title={item.cinema_name}/> )
+                                    .map((item, index) => 
+                                       <ListItem key={index.toString()} delteteFunc={deleteCinema} id={item._id.toString()} title={item.cinema_name}/> 
+                                    )    
                                  }
                               </Accordion.Body>                     
                            </Accordion.Item>

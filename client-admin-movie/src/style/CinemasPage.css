@@ -29,9 +29,6 @@
    margin-left: 10px ;
 }
 
-.accordion-button:not(.collapsed){
-   background-color: #3A3424;
-}
 
 .list:hover{
    color: #3A3424;

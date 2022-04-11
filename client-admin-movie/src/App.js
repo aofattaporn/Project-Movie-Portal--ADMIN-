@@ -7,8 +7,9 @@ import Navigation from './component/Navigation';
 import HomePage from './pages/HomePage';
 import MoviePage from './pages/MoviesPage';
 import CinemasPage from './pages/CinemasPage/CinemasPage';
+import CinemasCreate from './pages/CinemasPage/CinemasCreate';
+import CinemasEdite from './pages/CinemasPage/CinemasEdite';
 import PromotionPage from './pages/PromotionPages';
-import CreateCinemas from './pages/CreateCinemas';
 import { Route, Routes } from 'react-router-dom';
 
 
@@ -21,7 +22,9 @@ function App() {
         <Route className='test' path='/' element={<HomePage/>}></Route>
         <Route path='/movies' element={<MoviePage/>}></Route>
         <Route path='/cinemas' element={<CinemasPage/>}></Route>
-        <Route path='/cinemas/create' element={<CreateCinemas/>}></Route>
+        <Route path='/cinemas/create' element={<CinemasCreate/>}></Route>
+        <Route path='/cinemas/edite/:id' element={<CinemasEdite/>}></Route>
+
         <Route path='/promotions' element={<PromotionPage/>}></Route>
       </Routes>
       

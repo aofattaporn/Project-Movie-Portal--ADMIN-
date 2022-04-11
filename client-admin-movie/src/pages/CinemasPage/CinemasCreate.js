@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 
-import '../style/CinemasPage.css'
+import '../../style/CinemasPage.css'
 
-const CreateCinemas=()=>{
+const CinemasCreate=()=>{
 
    // set state  
    const [show, setShow] = useState(false);
@@ -21,10 +21,8 @@ const CreateCinemas=()=>{
       movie: []
    });
 
-
    const handleClose = () => setShow(false);
    const handleShow = () => setShow(true);
-
 
    // function onchange data 
    const onChangeCinemaName=(e)=>{
@@ -33,7 +31,6 @@ const CreateCinemas=()=>{
    }
 
    const onChangeCinemaArea=(e)=>{
-      e.preventDefault();
       setCinemaArea(e.target.value);
    }
 
@@ -76,10 +73,18 @@ const CreateCinemas=()=>{
             movie: []
          }
       );
+   }
 
-      console.log(cinema);
-      console.log('---------------------------');
+   const onSave=()=>{
+      axios.post('http://localhost:4000/cinemas/create',   cinema)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
+      handleClose();
    }
 
    const onSaveCinema=(e)=>{
@@ -90,14 +95,8 @@ const CreateCinemas=()=>{
       console.log(cinemaTheaters);
       console.log(cinema);
 
-      axios.post('http://localhost:4000/cinemas/create',   cinema)
-       .then(function (response) {
-         console.log(response);
-       })
-       .catch(function (error) {
-         console.log(error);
-       });
    }
+
 
    return (
       <Fragment>
@@ -118,8 +117,10 @@ const CreateCinemas=()=>{
 
                            <Form.Group className="mb-3" controlId="CinemaArea">
                               <Form.Label>Cinema Area</Form.Label>
-                              <Form.Select size="xl" defaultValue={"กรุงเทพ"} onChange={onChangeCinemaArea}>
-                                 <option value={"กรุงเทพ"}>กรุงเทพ</option>
+                              <Form.Select size="xl"  onChange={onChangeCinemaArea}>
+                                 <option >-</option>
+
+                                 <option value={"กรุงเทพ"} >กรุงเทพ</option>
                                  <option value={"กลาง"}>กลาง</option>
                                  <option value={"เหนือ"}>เหนือ</option>
                                  <option value={"ใต้"}>ใต้</option>
@@ -167,13 +168,13 @@ const CreateCinemas=()=>{
 
                         <Modal show={show} onHide={handleClose} animation={false}>
                            <Modal.Header closeButton>
-                              <Modal.Title>Modal heading</Modal.Title>
+                              <Modal.Title>This item is Correct !</Modal.Title>
                            </Modal.Header>
-                           <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                           <Modal.Body>Do you want to save this item</Modal.Body>
                            <Modal.Footer>
-                              <Button variant="secondary" onClick={handleClose}> Close </Button>
+                              <Button variant="secondary" onClick={handleClose}> cancle </Button>
                               <Link  to={'/cinemas'}>
-                                 <Button variant="primary" onClick={handleShow} >
+                                 <Button variant="primary" onClick={onSave} >
                                     Save Changes
                                  </Button>   
                               </Link>
@@ -195,4 +196,4 @@ const CreateCinemas=()=>{
    )
 } 
 
-export default CreateCinemas;
+export default CinemasCreate;

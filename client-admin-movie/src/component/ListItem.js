@@ -5,6 +5,7 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 import axios from 'axios';
 import ProptTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 
 
@@ -42,7 +43,7 @@ const ListItem=(props)=>{
             </div>
 
             <ButtonGroup>
-               <Button variant="primary"> Edit </Button>
+               <Link  to={`/cinemas/edite/${id}`} ><Button variant="primary"> Edit </Button></Link>
                <Button variant="danger" onClick={handleShow}> delete </Button> 
 
                <Modal aria-labelledby="contained-modal-title-vcenter" centered show={show} onHide={handleClose}>
